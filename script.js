@@ -4,8 +4,14 @@ const priceMessage = 'Il totale del tuo biglietto è: ';
 let discountMessage = 'Hai ricevuto uno sconto del ';
 
 // chiedo quanti km vuole percorrere e la sua età
-const tripLenght = prompt('Quanti Km vuoi percorrere', 100);
+const tripLenght = prompt('Quanti Km vuoi percorrere', 150);
 const userAge = prompt('Quanti anni hai', 25);
+
+// validation
+if (isNaN(tripLenght)|| isNaN(userAge) || tripLenght <= 0 || userAge <= 0){
+    alert('i dati inseriti non sono corretti');
+}
+
 
 // Prezzo biglietto senza sconto
 let ticketPrice = tripLenght * 0.21;
