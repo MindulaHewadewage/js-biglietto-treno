@@ -1,22 +1,32 @@
-console.log('JS OK')
+// Prendo l'elemento in pagina
+const totalElement = document.getElementById('total')
+const priceMessage = 'Il totale del tuo biglietto è: ';
+let discountMessage = 'Hai ricevuto uno sconto del ';
 
-// Metto il DOM nel JS
-const trainTicketPrice = document.getElementById('train-ticket-price');
-console.log('trainTicketPrice');
+// chiedo quanti km vuole percorrere e la sua età
+const tripLenght = prompt('Quanti Km vuoi percorrere', 100);
+const userAge = prompt('Quanti anni hai', 25);
 
-// Chiedo al cliente quanti chilometri vuole fare
-const tripLenght = parseInt(prompt('Quanti KM vuoi percorrere?', '20'));
-console.log('tripLenght');
+// Prezzo biglietto senza sconto
+let ticketPrice = tripLenght * 0.21;
 
-// Chiedo l'eta al cliente
-const userAge = prompt('Quanti Anni hai?', '18');
-console.log('userAge');
+let hasDiscount = false;
 
-// Creo una variabile con il prezzo del biglietto a kilometro
-const kmPrice = parseInt(0.21);
-console.log('kmPrice');
+// Verificare sconti
+if (userAge >=65) {
+    ticketPrice *= 0.6;
+    discountMessage += "40%";
+    hasDiscount = true;
 
-// Calcolo il prezzo del biglietto
-const ticketPrice = tripLenght * kmPrice;
-console.log('ticketPrice');
+} else if (userAge < 18) {
+    ticketPrice *= 0.8;
+    discountMessage += "20%";
+    hasDiscount = true;
+}
+if(hasDiscount) {
+    let discountMessage = 'Hai ricevuto uno sc'
+    const discountMessageElement = document.getElementById('discount-message');
+    discountMessageElement.innerText = discountMessage;
+}
 
+totalElement.innerText = priceMessage + '€' + ticketPrice.toFixed(2);
