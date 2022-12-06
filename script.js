@@ -10,23 +10,23 @@ const userAge = prompt('Quanti anni hai', 25);
 // Prezzo biglietto senza sconto
 let ticketPrice = tripLenght * 0.21;
 
-let hasDiscount = false;
+let discount = 0;
 
 // Verificare sconti
 if (userAge >=65) {
     ticketPrice *= 0.6;
-    discountMessage += "40%";
-    hasDiscount = true;
+    discount = "40%";
 
 } else if (userAge < 18) {
     ticketPrice *= 0.8;
-    discountMessage += "20%";
-    hasDiscount = true;
+    discount = "20%";
 }
-if(hasDiscount) {
-    let discountMessage = 'Hai ricevuto uno sc'
+if (discount) {
+    let discountMessage = 'Hai ricevuto uno sconto del ' + discount;
     const discountMessageElement = document.getElementById('discount-message');
     discountMessageElement.innerText = discountMessage;
+
 }
 
 totalElement.innerText = priceMessage + '€' + ticketPrice.toFixed(2);
+
